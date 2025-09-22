@@ -43,7 +43,7 @@ export default function Home() {
       )}
 
       <h1 className="text-3xl font-bold mb-6 text-center">
-        Fresh Vegetables & Fruits
+        Sharma Vegetable and Fruits
       </h1>
 
       {/* Loading Skeleton */}
@@ -85,7 +85,7 @@ export default function Home() {
 
               {/* Product Details */}
               <h2 className="text-lg font-semibold text-center">{p.name}</h2>
-              <p className="text-gray-700 mb-3">₹{p.price_per_kg}/kg</p>
+              <p className="text-gray-700 mb-3">₹{p.price_per_kg}</p>
 
               {/* Add to Cart Button */}
               <button

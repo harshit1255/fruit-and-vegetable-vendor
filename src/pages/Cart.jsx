@@ -88,7 +88,7 @@ export default function Cart() {
             {/* Product Info */}
             <div className="flex-1">
               <p className="font-semibold text-lg">{item.name}</p>
-              <p className="text-gray-600">₹{item.price_per_kg} / kg</p>
+              <p className="text-gray-600">₹{item.price_per_kg}</p>
               <p className="text-gray-800 font-medium mt-1">
                 Subtotal: ₹{subtotal.toFixed(2)}
               </p>

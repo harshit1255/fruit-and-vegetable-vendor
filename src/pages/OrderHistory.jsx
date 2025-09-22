@@ -32,7 +32,7 @@ export default function OrderHistory() {
           <ul className="list-disc pl-5 mt-2">
             {order.orderedItems.map((item, idx) => (
               <li key={idx} className="text-gray-700">
-                {item.name} - {item.quantityInKg}kg @ ₹{item.price}/kg
+                {item.name} - {item.quantityInKg}x @ ₹{item.price}
               </li>
             ))}
           </ul>
