@@ -9,16 +9,20 @@ export default function OrderHistory() {
   }, []);
 
   if (orders.length === 0) {
-    return <p className="text-center mt-10 text-gray-500">No orders yet.</p>;
+    return (
+      <div className="container py-10">
+        <p className="text-center text-gray-500">No orders yet.</p>
+      </div>
+    );
   }
 
   return (
-    <div className="p-4 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6 text-center">Order History</h1>
+    <div className="container max-w-3xl py-6">
+      <h1 className="heading-1 mb-6 text-center">Order History</h1>
       {orders.map((order, i) => (
         <div
           key={i}
-          className="border rounded-lg p-4 mb-4 bg-white shadow-sm hover:shadow-md"
+          className="card p-4 mb-4"
         >
           <p className="font-semibold">
             Order Date: {new Date(order.orderDate).toLocaleString()}

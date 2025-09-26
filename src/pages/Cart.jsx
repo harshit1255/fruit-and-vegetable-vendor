@@ -69,8 +69,8 @@ export default function Cart() {
   }
 
   return (
-    <div className="p-4 max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6 text-center">Your Cart</h1>
+    <div className="container max-w-3xl py-6">
+      <h1 className="heading-1 mb-6 text-center">Your Cart</h1>
 
       {cart.length === 0 && (
         <p className="text-center text-gray-500">Your cart is empty.</p>
@@ -83,7 +83,7 @@ export default function Cart() {
         return (
           <div
             key={item.id}
-            className="flex items-center justify-between rounded-xl p-4 mb-4 bg-white shadow-sm hover:shadow-md transition-shadow"
+            className="card flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 mb-4"
           >
             {/* Product Info */}
             <div className="flex-1">
@@ -99,14 +99,14 @@ export default function Cart() {
               <button
                 onClick={() => updateQuantity(item.id, quantity - 1)}
                 disabled={quantity <= 1}
-                className="px-3 py-1 bg-gray-200 rounded-lg text-lg font-bold hover:bg-gray-300 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                className="btn-secondary px-3 py-1 text-lg font-bold disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 -
               </button>
               <span className="text-lg font-semibold">{quantity}</span>
               <button
                 onClick={() => updateQuantity(item.id, quantity + 1)}
-                className="px-3 py-1 bg-gray-200 rounded-lg text-lg font-bold hover:bg-gray-300 transition"
+                className="btn-secondary px-3 py-1 text-lg font-bold"
               >
                 +
               </button>
@@ -115,7 +115,7 @@ export default function Cart() {
             {/* Delete Button */}
             <button
               onClick={() => removeFromCart(item.id)}
-              className="ml-4 text-red-500 hover:text-red-700 transition"
+              className="ml-0 sm:ml-4 text-red-600 hover:text-red-700 transition"
               title="Remove item"
             >
               <FiTrash2 size={20} />
@@ -131,7 +131,7 @@ export default function Cart() {
           </div>
           <button
             onClick={() => setShowForm(true)}
-            className="w-full bg-green-500 text-white py-3 rounded-lg mt-6 font-semibold hover:bg-green-600 transition"
+            className="btn-primary w-full py-3 mt-6"
           >
             Place Order
           </button>
@@ -140,13 +140,13 @@ export default function Cart() {
 
       {/* Order Form Modal */}
       {showForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-xl w-full max-w-md shadow-lg">
+        <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 p-4">
+          <div className="card p-6 w-full max-w-md">
             <h2 className="text-xl font-bold mb-4">Enter your details</h2>
             {message && <p className="mb-3 text-red-500">{message}</p>}
             <form onSubmit={placeOrder} className="space-y-4">
               <div>
-                <label className="block mb-1 font-medium">Name</label>
+                <label className="label">Name</label>
                 <input
                   type="text"
                   placeholder="Name"
@@ -155,12 +155,12 @@ export default function Cart() {
                     setOrderData({ ...orderData, name: e.target.value })
                   }
                   required
-                  className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-green-400 outline-none"
+                  className="input"
                 />
               </div>
 
               <div>
-                <label className="block mb-1 font-medium">Phone Number</label>
+                <label className="label">Phone Number</label>
                 <input
                   type="tel"
                   placeholder="10-digit phone number"
@@ -170,12 +170,12 @@ export default function Cart() {
                   }
                   required
                   pattern="\d{10}"
-                  className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-green-400 outline-none"
+                  className="input"
                 />
               </div>
 
               <div>
-                <label className="block mb-1 font-medium">Address</label>
+                <label className="label">Address</label>
                 <textarea
                   placeholder="Address"
                   value={orderData.address}
@@ -183,7 +183,7 @@ export default function Cart() {
                     setOrderData({ ...orderData, address: e.target.value })
                   }
                   required
-                  className="w-full border rounded-lg p-2 focus:ring-2 focus:ring-green-400 outline-none"
+                  className="input"
                 />
               </div>
 
@@ -191,14 +191,14 @@ export default function Cart() {
                 <button
                   type="button"
                   onClick={() => setShowForm(false)}
-                  className="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 transition"
+                  className="btn-secondary px-4 py-2"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
+                  className="btn-primary px-4 py-2 disabled:opacity-60"
                 >
                   {loading ? "Placing..." : "Place Order"}
                 </button>

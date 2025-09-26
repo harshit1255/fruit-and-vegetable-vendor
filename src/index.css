@@ -1,1 +1,63 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand: 16 185 129; /* emerald-500 */
+    --brand-600: 5 150 105; /* emerald-600 */
+    --brand-700: 4 120 87; /* emerald-700 */
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+
+  a {
+    @apply text-emerald-600 hover:text-emerald-700;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 bg-emerald-500 text-white hover:bg-emerald-600 focus:ring-emerald-500;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-400;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center rounded-lg font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 bg-red-500 text-white hover:bg-red-600 focus:ring-red-500;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-gray-300 bg-white px-3 py-2 shadow-sm focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none;
+  }
+  .label {
+    @apply block mb-1 font-medium text-gray-800;
+  }
+
+  .badge {
+    @apply inline-flex items-center justify-center rounded-full text-xs font-semibold px-2 py-0.5;
+  }
+  .badge-danger {
+    @apply inline-flex items-center justify-center rounded-full text-xs font-semibold px-2 py-0.5 bg-red-500 text-white;
+  }
+}
+
+@layer utilities {
+  .heading-1 {
+    @apply text-3xl sm:text-4xl font-bold tracking-tight;
+  }
+  .heading-2 {
+    @apply text-2xl sm:text-3xl font-bold;
+  }
+}

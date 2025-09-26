@@ -31,39 +31,47 @@ export default function AddProduct() {
   }
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg mt-6">
-      <h1 className="text-2xl font-bold mb-4">Add Product</h1>
-      {message && <p className="mb-4">{message}</p>}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          type="text"
-          placeholder="Product Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full border rounded p-2"
-          required
-        />
-        <input
-          type="number"
-          placeholder="Price per kg"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          className="w-full border rounded p-2"
-          required
-        />
-        <input
-          type="file"
-          onChange={(e) => setImage(e.target.files[0])}
-          className="w-full border rounded p-2"
-          required
-        />
-        <button
-          type="submit"
-          className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
-        >
-          Add Product
-        </button>
-      </form>
+    <div className="container max-w-md py-6">
+      <div className="card p-6">
+        <h1 className="heading-2 mb-4">Add Product</h1>
+        {message && <p className="mb-4">{message}</p>}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="label">Product Name</label>
+            <input
+              type="text"
+              placeholder="Product Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="input"
+              required
+            />
+          </div>
+          <div>
+            <label className="label">Price per kg</label>
+            <input
+              type="number"
+              placeholder="Price per kg"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              className="input"
+              required
+            />
+          </div>
+          <div>
+            <label className="label">Image file</label>
+            <input
+              type="file"
+              onChange={(e) => setImage(e.target.files[0])}
+              className="input"
+              required
+            />
+          </div>
+          <button type="submit" className="btn-primary w-full py-2">
+            Add Product
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
